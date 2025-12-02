@@ -2,5 +2,8 @@
 Qui sono raggruppati tutti i programmi in C++ utili per la lezione 
 
 
+<img src="immagini/scarica.png" width="350">
 
-![](/immagini/Seleziona.png)
+<br>
+
+<img src="immagini/seleziona.png" width="350">
