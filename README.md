@@ -17,3 +17,8 @@ In "esempi.zip" troverete dei esercizi per provare a studiare.
 
 > [!NOTE]
 > Se ci sono domande chiedete tranquillamente 😊
+
+
+
+References:
+-dispense-labinfI-parte2 dalle "Dispense di Laboratorio di Informatica II Parte A.A. 2025/26" di M.Baioletti 
