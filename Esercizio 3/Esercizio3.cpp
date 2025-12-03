@@ -141,13 +141,23 @@ int main(){
                 oppure 
 
                 vector<vector<int>> vec = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-                
+
             NB: In questo modo posso creare matrici con dimensione variabile durante l'esecuzione del programma.
 
     */
 
 
+    vector<double> vec1 = {1.0, 2.0, 3.0};
+    vector<double> vec2 = {4.0, 5.0, 6.0};
 
+    vector<double> vec_somma = vettore_somma_tra_vettori(vec1, vec2);
+    cout << "La somma dei vettori e': ";
+    for (size_t i = 0; i < vec_somma.size(); i++) {
+        cout << vec_somma[i] << " ";
+    }
+    cout << endl;
+
+    cout<<"L'elemento in posizione 2 del vettore somma e': "<< vec_somma[2]<<endl; //NON IL SECONDO MA IL TERZO ELEMENTO (PARTE DA 0)
 
 
 
