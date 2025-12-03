@@ -37,6 +37,19 @@ int somma_elementi(int a, int b) {
     - "return valore_di_ritorno;" e' l'istruzione che restituisce il valore dalla funzione al punto in cui e' stata chiamata
     
     NB: se la funzione è VOID NON VA MESSO IL RETURN
+    
+    NB2: Le funzioni POSSONO richiamare altre funzioni (anche se stesse) al loro interno!
+            void SommaRicorsiva(int partenza,int fine, int counter)
+                {
+                    if (partenza<=fine){
+                        counter= counter + partenza;
+                        SommaRicorsiva(partenza+1, fine, counter);
+                    }
+                    else {
+                        cout<<"La somma e': "<< counter <<endl;
+                        break;
+                    }
+                }
 
 */
 
