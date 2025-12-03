@@ -44,9 +44,9 @@ void maggiore_di_tutti(int a, int b){
     // Funzione che legge 5 numeri interi da tastiera e restituisce il maggiore
     int max_num = 100000000 ; // Inizializzo max_num al valore minimo possibile per un intero
     if (a > b) {
-        cout<<"a è il tuo numero piu grande"<<endl;
+        cout<< a <<" è il tuo numero piu grande"<<endl;
     }
-    else cout<<"b è il tuo numero piu grande"<<endl;
+    else cout<< b << "è il tuo numero piu grande"<<endl;
 
 
     int n;
@@ -55,10 +55,10 @@ void maggiore_di_tutti(int a, int b){
 
     switch (n) {
     case 1:
-        cout<< "a è maggiore a 5"<<endl;
+        cout<< a <<" è maggiore a 5"<<endl;
         break;
     default:
-        cout<< "a è minore o uguale a 5"<<endl;
+        cout<< a <<" è minore o uguale a 5"<<endl;
     }
 
 
@@ -141,12 +141,6 @@ double somma_elementi(double vettore[], int size) {
     
     3) 
     
-    -DA RICORDARE:
-        Variabili definite/"nate" nei cicli for, if, while, etc ... esistono SOLO all'interno di quel blocco di codice!-> MORTE
-        Usare variabili esterne per continuare a usarle dopo ("salvarle").
-        Dentro i cicli o nel if posso scrivere che mi pare.
-
-        
 
 */
 }
@@ -157,14 +151,110 @@ int main() {
     int num1, num2;
     int n=10;
     double vettore[n];
-    cout<<"Inserisci due numeri interi: "<<endl;
-    cin>>num1>>num2;
-    maggiore_di_tutti(num1, num2);
-    cout<<"Inserisci 10 numeri nel vettore: "<<endl;
-    for(int i=0; i<n; i++){
-        cin>>vettore[i];
+
+    cout<<"Benvenuto nel programma cosa vuoi fare?"<<endl;
+    cout<<"Inserisci un numero (1-2-3) oppure se vuoi uscire inserisci 0: "<<endl;
+    int i;
+    while(i!=0){
+        cout<<endl;
+        cout<<"--------------------------------"<<endl;
+        cout<<"1) Somma di elementi di un vettore"<<endl;
+        cout<<"2) Trova il maggiore tra due numeri interi"<<endl;
+        cin>>i;
+        if(i==1){
+            cout<<"Inserisci 10 numeri nel vettore: "<<endl;
+            for(int i=0; i<n; i++){
+                cin>>vettore[i];
+            }
+            double risultato= somma_elementi(vettore, n);
+            cout<<"La somma degli elementi del vettore e': "<<risultato<<endl;
+            i=3;
+        }
+        if(i==2){
+            cout<<"Inserisci due numeri interi: "<<endl;
+            cin>>num1>>num2;
+            maggiore_di_tutti(num1, num2);
+            i=3;
+        }
+        if(i!=0 && i!=1 && i!=2 && i!=3){
+            cout<<"Hai inserito un numero non valido, riprova oppure inserisci 0 per uscire."<<endl;
+        }
     }
-    double risultato= somma_elementi(vettore, n);
-    cout<<"La somma degli elementi del vettore e': "<<risultato<<endl;
+
+    cout<<"Arrivederci!"<<endl;
+
+
+/*Capiamo cosa abbiamo scritto:
+    1) Il ciclo while funziona come il for ma senza inizializzazione e incremento:
+        while (condizione) {
+            // codice da eseguire fintanto che la condizione e' vera
+        }
+
+        NB: E' importante che la condizione diventi falsa ad un certo punto per evitare cicli infiniti!
+        1a) Il ciclo while è molto utile se si deve ripetere qualcosa finche non viene verificata una condizione
+            es: Vuoi che l utente inserisca 1 2 3 (che corrisponde ad un azione) ma lui inserisce ("ciao" oppure 6 )
+                con il while puoi dare errore e chiedere di nuovo l input finche non inserisce un valore valido.
+
+    2) Il ciclo while e ciclo for sono la stessa cosa in certi casi:
+
+        for (inizializzazione; condizione; incremento) {
+            // codice da eseguire
+        }
+
+        e' equivalente a:
+
+        inizializzazione;
+        while(condizione) {
+            // codice da eseguire
+            incremento;
+        }
+
+    3) Il ciclo while puo essere usato anche con la struttura DO-WHILE:
+
+        do {
+            // codice da eseguire almeno una volta
+        } while (condizione);
+        
+       Continuerà finche la condizione del while è vera-> Ricorda che prima o poi la condizione deve essere
+       falsa per evitare cicli infiniti!
+       
+       
+    4) Un modo per bloccare cicli while o for o do-while è usare il comando "break;"
+            while (true) { // ciclo infinito
+                ...
+                if (condizione_di_uscita) {
+                    break; // esce dal ciclo
+                }
+                ...
+            }  
+
+        4a) Fun fact, esiste il comando "continue;" che salta alla prossima iterazione del ciclo
+            
+            es: for (i=0; i<10; i++) {
+                    if (i % 2 == 0) {
+                        continue; // salta il resto del ciclo per i pari
+                    }
+                    cout << i << " "; // stampa solo i numeri dispari
+                }
+
+    esempio figo:
+        while (true) {
+            cout << "Inserisci un numero (0 per uscire): ";
+            int numero;
+            cin >> numero;
+            if (numero == 0) {
+                break; // esce dal ciclo se l'utente inserisce 0
+            }
+            cout << "Hai inserito: " << numero << endl;
+        }
+
+*/
 
 }
+/*
+    -DA RICORDARE:
+        *Variabili definite/"nate" nei cicli for, if, while, etc ... esistono SOLO all'interno di quel blocco di codice!-> MORTE
+        *Usare variabili esterne per continuare a usarle dopo ("salvarle").
+        *Dentro i cicli o nel if posso scrivere che mi pare.
+        *UCCIDERE i cicli while senno non finiscono piu.!!!!!!!!
+*/
