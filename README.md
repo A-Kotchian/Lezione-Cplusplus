@@ -6,8 +6,8 @@ In "esempi.zip" troverete esempi con cui potete esercitarvi ed esercizi incentra
 - Esercizio 1: Introduzione a C++ e operazioni base
 - Esercizio 2: Funzioni, For, While,If-else e Switch
 - Esercizio 3: Struct, Array e Vector
-- Esercizio 4: Puntatori, Array dinamici, Set-Map e Passaggio per riferimento
-- Esercizio 5:
+- Esercizio 4: Puntatori, Array dinamici, Set e Passaggio per riferimento
+- Esercizio 5: Numeri Pseudo-casuali e Gestione File
 
 > [!TIP]
 >  Per scaricare gli esempi:
