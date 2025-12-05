@@ -241,7 +241,7 @@ int main() {
                 ...
             }  
 
-        4a) Fun fact, esiste il comando "continue;" che salta alla prossima iterazione del ciclo
+        4a) Fun fact: esiste il comando "continue;" che salta alla prossima iterazione del ciclo
             
             es: for (i=0; i<10; i++) {
                     if (i % 2 == 0) {
@@ -256,10 +256,14 @@ int main() {
             int numero;
             cin >> numero;
             if (numero == 0) {
+                cout<<"Arrivederci!"<<endl;
                 break; // esce dal ciclo se l'utente inserisce 0
             }
             cout << "Hai inserito: " << numero << endl;
-        }
+            
+            //Qualcosa da fare con il numero inserito (es: Menu interattivo)
+
+            }
 
 */
 

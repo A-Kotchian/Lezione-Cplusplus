@@ -47,6 +47,15 @@ int main(){
     cout<<"Il loro quadrato e': "<< pow(num2,2) <<" e "<<pow(num2,2)<<endl;
 
 
+    
+    bool a = true, b = false;
+    bool risultato1 = a && b;  // false (AND logico)
+    bool risultato2 = a || b;  // true (OR logico)
+    bool risultato3 = !a;      // false (NOT logico)
+    cout << "a && b = " << risultato1 << endl;
+    cout << "a || b = " << risultato2 << endl;
+    cout << "!a = " << risultato3 << endl;
+    
 /*Capiamo cosa abbiamo scritto:
 
  1) " int main() { ... } " e' la funzione principale di ogni programma C++.
@@ -60,6 +69,8 @@ int main(){
          allineata a destra in uno spazio di 7 caratteri (per usare "setw" bisogna includere la libreria "iomanip")
 
  3) " cin >> variabile; " e' un'istruzione che legge un valore da tastiera (INSERISCI NEL COMPUTER = Computer-INput)
+
+
 
  4) In C++ si usando degli oggetti detti variabili che ti permettono di salvare in memoria numeri/parole/etc ...
     Le variabili possono essere del tipo:(i piu comuni)

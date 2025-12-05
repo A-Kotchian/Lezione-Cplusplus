@@ -86,3 +86,4 @@ persona elenco_persone(int n) {
     }
     return count;
 }
+
