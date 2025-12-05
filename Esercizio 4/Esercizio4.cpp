@@ -1,7 +1,183 @@
 #include <iostream>
 #include <cmath>
+#include <set>
 
 using namespace std;
+
+
+
+
+
+void scambia(int &x, int &y) { // passaggio per riferimento
+	int z = x;
+	x = y;
+	y = z;
+}
+
+/*Capiamo cosa abbiamo scritto:
+ - In C++, il passaggio per riferimento permette di modificare le variabili originali
+   passate a una funzione, invece di lavorare su copie locali usando il simbolo "&" accanto
+    al tipo di dato nella dichiarazione della funzione.
+
+    Il passaggio per riferimento rende piu veloce il codice occupando meno memoria.
+
+
+    NB: Le modifiche fatte alle variabili all'interno della funzione vengono fatte anche dove la variabile è stata definita.
+        Quindi se ti serve il valore della variabile ma non modificarla NON usare il passaggio per riferimento!
+        es: 
+        
+        void funzione(int a)
+            { a = a + 1; } // Modifica la variabile originale
+            
+        void funzione(int &a) 
+            { a = a+1  } // Non modifica la variabile originale
+ 
+    NB2: Se si inserisce anche "const" prima del tipo di dato (es: void funzione(const int &a) {...} )
+         la variabile passata per riferimento non potra essere modificata all'interno della funzione.
+         Questo e' utile per proteggere i dati originali da modifiche accidentali.
+         (Ridarà errore se si prova a modificare la variabile all'interno della funzione)
+
+*/
+
+
+
+int main() {
+    int a = 5, b = 10;
+    cout << "Prima dello scambio: a = " << a << ", b = " << b << endl;
+    scambia(a, b);
+    cout << "Dopo lo scambio: a = " << a << ", b = " << b << endl;
+
+
+    // puntatori a variabili esistenti
+    int *pa = &a;
+    int *pb = &b;
+    cout << "Indirizzi: pa = " << pa << ", pb = " << pb << endl;
+    cout << "Valori tramite puntatore: *pa = " << *pa << ", *pb = " << *pb << endl;
+
+
+    /*Capiamo cosa abbiamo scritto:
+        1) I puntatori sono variabili che memorizzano l'indirizzo  di un'altra variabile.
+           Si dichiarano usando l'asterisco (*) prima del nome del puntatore.
+           Va specificato il tipo di dato a cui il puntatore punta.
+           es: 
+                int *p;
+                int a = 10;
+                p = &a; // Il puntatore p ora punta all'indirizzo di a
+                
+                oppure
+
+                int a = 10;
+                int *p = &a; // Dichiarazione e assegnazione in una riga
+
+            1a) Il puntatore inizialmente puo "puntare" anche niente:
+                es:
+                    int *p = nullptr; // Puntatore che non punta a nulla
+        
+        
+        2) Per fare operazioni sul puntatore si usano:
+            - L'operatore "&" per ottenere l'indirizzo di una variabile
+            - L'operatore "*" per usare il valore della variabile a cui punta il puntatore
+
+            es:
+                int a=10;
+                int *p = &a;
+                int raddoppio= *p * 2; // Raddoppia il valore di a usando il puntatore p
+        
+        NB: Ogni volta che si definisce un puntatore è buona pratica eliminarlo alla fine del suo utilizzo
+        con il comando "delete nome_puntatore;" per evitare perdite di memoria.
+
+
+    */
+
+ 
+    // array dinamico e aritmetica dei puntatori
+    int n = 6;
+    int *v = new int[n];   //Ho dato la tipologia di array (int) e la dimensione (n)
+
+    cout << "Inserisci " << n << " numeri interi:" << endl;
+    for (int i = 0; i < n; i++) {
+        cin>> v[i]; 
+    }
+    
+    for (int i = 0; i < n; i++) {
+        v[i] = i * 10;  // Inizializzo l'array
+    }
+
+    cout << "Elementi dell'array dinamico:" << endl;
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";  // Stampo gli elementi dell'array
+    }
+    cout << endl;
+    delete[] v;  // Libero la memoria allocata per l'array dinamico
+
+
+/*Capiamo cosa abbiamo scritto:
+    1) Gli array dinamici permettono di creare array con dimensione variabile durante l'esecuzione del programma.
+       Si usano i puntatori e l'operatore "new" per allocare memoria per l'array.
+
+       es:
+            int n = 10;
+            int *v = new int[n]; // Crea un array dinamico di interi di dimensione n
+
+            
+        NB: Un altro tipo di array dinamici sono i vector.
+
+
+    2) Per accedere agli elementi dell'array dinamico si usa la stessa sintassi degli array normali:
+        es: v[i] per accedere all'elemento in posizione i
+
+        Si possono trattare come normali array (assegnazione, lettura, cicli, etc ...)
+
+    3) E' importante liberare la memoria allocata per l'array dinamico alla fine del suo utilizzo
+       usando il comando "delete[] nome_array;"
+
+       es:
+            delete[] v; // Libera la memoria allocata per l'array dinamico v
+
+
+
+
+*/
+
+
+    // esempio di std::set
+    set<int> s = {3, 1, 4, 5, 9, 2, 6};
+
+    cout << "set (ordinato, senza duplicati): ";
+    for (int x : s) cout << x << " ";
+    cout << endl;
+
+    int da_trovare = 4;
+    if (s.find(da_trovare) != s.end()) {
+        cout << da_trovare << " trovato nel set\n";
+    } else {
+        cout << da_trovare << " non presente\n";
+    }
+
+    s.insert(10);
+    s.erase(1);
+
+
+/*Capiamo cosa abbiamo scritto:
+    1) Un set e' una collezione di elementi UNICI e ordinati.
+       In C++ si usa la libreria <set> per creare e gestire i set.
+
+       es:
+            set<tipo_di_dato> nome_set = {elementi_iniziali};
+
+    2) Le operazioni principali sui set sono:
+        - Inserimento: nome_set.insert(valore);
+        - Cancellazione: nome_set.erase(valore);
+        - Ricerca: nome_set.find(valore); // Restituisce un iteratore all'elemento o nome_set.end() se non trovato
+        - Iterazione: si puo usare un ciclo for per scorrere tutti gli elementi del set
+
+    
+    
+*/
+}
+
+
+
 
 
 
@@ -13,77 +189,3 @@ using namespace std;
  - E' buona pratica indentare il codice (usare spazi o tabulazioni per rendere il codice piu leggibile)
 
 */
-
-
-struct persona {
-    string nome;
-    int eta;
-    double altezza;
-};
-
-
-/*Capiamo cosa abbiamo scritto:
-
-    1) Le strutture (struct) permettono di creare nuovi tipi di dati composti da piu variabili (chiamate membri).
-       Esempio: La struct "persona" contiene tre membri: "nome" (stringa)
-                                                         "eta" (intero)
-                                                         "altezza" (double).
-                                                        
-
-    2) La struttura di una struct e':
-       
-       struct nome_struct {
-           tipo_membro1 nome_membro1;
-           tipo_membro2 nome_membro2;
-           ...
-       };
-
-    3) Per accedere ai membri di una struct si usa l'operatore punto (.):
-       "nome_variabile.nome_membro"
-        es: persona p;
-            p.nome = "Mario";
-            p.eta = 30;
-            p.altezza = 1.75;
-
-    NB: Quello che bisogna notare e che la struct crea un nuovo tipo di dato (persona) 
-        che puo essere usato come qualsiasi altro tipo di dato (int, double, string, etc ...)
-
-        --> Array, vector, funzioni ecc... possono usare le struct come tipi di dato!
-
-*/
-
-void inserisci_persona(persona &p) {    //"&" per passare la struct per riferimento senza ricreare una copia
-    // Funzione che inserisce i dati di una persona
-    cout << "Inserisci il nome: ";
-    cin >> p.nome;
-    cout << "Inserisci l'eta': ";
-    cin >> p.eta;
-    cout << "Inserisci l'altezza: ";
-    cin >> p.altezza;
-
-    //RICORDA VOID NON HA BISOGNO DI RETURN
-}
-
-persona elenco_persone(int n) {
-    // Funzione che crea un array di struct persona e ne inserisce i dati
-    persona persone[n];
-    for (int i = 0; i < n; i++) {
-        cout << "Inserisci i dati della persona " << (i + 1) << ":\n";
-        inserisci_persona(persone[i]);
-    }
-    return persone[n];   
-}
-
-
- int quanti_con_nome (persona persone[], int n, string nome_cercato) {   //Quando passi un array a una funzione,
-                                                                        //non e' necessario specificare la dimensione dell'array
-    // Funzione che conta quante persone hanno un certo nome
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        if (persone[i].nome == nome_cercato) {
-            count++;
-        }
-    }
-    return count;
-}
-

@@ -70,6 +70,82 @@ vector<double> vettore_somma_tra_vettori(vector <double> v1, vector<double> v2){
 
 
 
+struct persona {
+    string nome;
+    int eta;
+    double altezza;
+};
+
+
+/*Capiamo cosa abbiamo scritto:
+
+    1) Le strutture (struct) permettono di creare nuovi tipi di dati composti da piu variabili (chiamate membri).
+       Esempio: La struct "persona" contiene tre membri: "nome" (stringa)
+                                                         "eta" (intero)
+                                                         "altezza" (double).
+                                                        
+
+    2) La struttura di una struct e':
+       
+       struct nome_struct {
+           tipo_membro1 nome_membro1;
+           tipo_membro2 nome_membro2;
+           ...
+       };
+
+    3) Per accedere ai membri di una struct si usa l'operatore punto (.):
+       "nome_variabile.nome_membro"
+        es: persona p;
+            p.nome = "Mario";
+            p.eta = 30;
+            p.altezza = 1.75;
+
+    NB: Quello che bisogna notare e che la struct crea un nuovo tipo di dato (persona) 
+        che puo essere usato come qualsiasi altro tipo di dato (int, double, string, etc ...)
+
+        --> Array, vector, funzioni ecc... possono usare le struct come tipi di dato!
+
+*/
+
+void inserisci_persona(persona &p) {    //"&" per passare la struct per riferimento senza ricreare una copia
+    // Funzione che inserisce i dati di una persona
+    cout << "Inserisci il nome: ";
+    cin >> p.nome;
+    cout << "Inserisci l'eta': ";
+    cin >> p.eta;
+    cout << "Inserisci l'altezza: ";
+    cin >> p.altezza;
+
+    //RICORDA VOID NON HA BISOGNO DI RETURN
+}
+
+persona elenco_persone(int n) {
+    // Funzione che crea un array di struct persona e ne inserisce i dati
+    persona persone[n];
+    for (int i = 0; i < n; i++) {
+        cout << "Inserisci i dati della persona " << (i + 1) << ":\n";
+        inserisci_persona(persone[i]);
+    }
+    return persone[n];   
+}
+
+
+int quanti_con_nome (persona persone[], int n, string nome_cercato) {   //Quando passi un array a una funzione,
+                                                                        //non e' necessario specificare la dimensione dell'array
+    // Funzione che conta quante persone hanno un certo nome
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (persone[i].nome == nome_cercato) {
+            count++;
+        }
+    }
+    return count;
+}
+
+
+
+
+
 int main(){
 
     int vettore[N];
@@ -149,21 +225,27 @@ int main(){
 
     vector<double> vec1 = {1.0, 2.0, 3.0};
     vector<double> vec2 = {4.0, 5.0, 6.0};
-
     vector<double> vec_somma = vettore_somma_tra_vettori(vec1, vec2);
+
     cout << "La somma dei vettori e': ";
     for (size_t i = 0; i < vec_somma.size(); i++) {
         cout << vec_somma[i] << " ";
     }
     cout << endl;
-
     cout<<"L'elemento in posizione 2 del vettore somma e': "<< vec_somma[2]<<endl; //NON IL SECONDO MA IL TERZO ELEMENTO (PARTE DA 0)
 
 
+    // Esempio con struct persona
+    persona p1;
+    p1.nome = "Marco";
+    p1.eta = 25;
+    p1.altezza = 1.80;
 
-
-
-
-
+    cout << "\nDati della persona:\n";
+    cout << "Nome: " << p1.nome << "\n";
+    cout << "Eta': " << p1.eta << "\n";
+    cout << "Altezza: " << p1.altezza << " m\n";
 
 }
+
+
