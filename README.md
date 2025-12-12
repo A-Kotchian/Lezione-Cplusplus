@@ -8,7 +8,8 @@ In "esempi.zip" troverete esempi con cui potete esercitarvi ed esercizi incentra
 - Esercizio 3: Struct, Array e Vector
 - Esercizio 4: Puntatori, Array dinamici, Set e Passaggio per riferimento
 - Esercizio 5: Numeri Pseudo-casuali e Gestione File
-- Esercizio 6: Classi e Classi figlie
+- Esercizio 6: Classi
+- Esercizio 7: Ereditarietà delle classi e Ridefinizione Operazioni 
 
 > [!TIP]
 >  Per scaricare gli esempi:
