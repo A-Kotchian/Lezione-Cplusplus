@@ -28,4 +28,4 @@ In "esempi.zip" troverete esempi con cui potete esercitarvi ed esercizi incentra
 
 
 References:
--dispense-labinfI-parte2 dalle "Dispense di Laboratorio di Informatica II Parte A.A. 2025/26" di M.Baioletti 
+- dispense-labinfI-parte2 dalle " *Dispense di Laboratorio di Informatica II Parte A.A. 2025/26* " di M.Baioletti 
