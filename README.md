@@ -8,7 +8,7 @@ In "esempi.zip" troverete esempi con cui potete esercitarvi ed esercizi incentra
 - Esercizio 3: Struct, Array e Vector
 - Esercizio 4: Puntatori, Array dinamici, Set e Passaggio per riferimento
 - Esercizio 5: Numeri Pseudo-casuali e Gestione File
-- Esercizio 6: Classi (WIP)
+- Esercizio 6: Classi e Classi figlie
 
 > [!TIP]
 >  Per scaricare gli esempi:
@@ -29,3 +29,4 @@ In "esempi.zip" troverete esempi con cui potete esercitarvi ed esercizi incentra
 
 References:
 - dispense-labinfI-parte2 dalle " *Dispense di Laboratorio di Informatica II Parte A.A. 2025/26* " di M.Baioletti 
+- dispese_labinfII dalle dispense degli scorsi anni del corso "*Laboratorio di Informatica II* " di M.Baioletti
