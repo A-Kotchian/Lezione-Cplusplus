@@ -11,6 +11,8 @@ In "esempi.zip" troverete esempi con cui potete esercitarvi ed esercizi incentra
 - Esercizio 6: Classi
 - Esercizio 7: Ereditarietà delle classi e Ridefinizione Operazioni 
 
+Sono stati inseriti anche gli esercizi della lezione tenuta il giorno 9/1/2026, con le relative spiegazioni.
+
 > [!TIP]
 >  Per scaricare gli esempi:
 > <br>
