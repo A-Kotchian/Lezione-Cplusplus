@@ -50,6 +50,17 @@ int somma_elementi(int a, int b) {
                         break;
                     }
                 }
+    
+    I parametri iniziali posso definirli anche di default se l'utente non li specifica:
+        tipo_di_ritorno nome_funzione(tipo_parametro1 nome1 = valore_default1, tipo_parametro2 nome2 = valore_default2, ...) {
+            ...
+        }
+    I parametri possono essere anche passati per riferimento usando "&":
+        tipo_di_ritorno nome_funzione(tipo_parametro1& nome1, tipo_parametro2& nome2, ...) {
+            ...
+        }
+        
+        In questo modo le modifiche fatte ai parametri all'interno della funzione si riflettono anche all'esterno della funzione.
 
 */
 
